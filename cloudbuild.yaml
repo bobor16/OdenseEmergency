@@ -1,7 +1,7 @@
 # cloudbuild.yaml
 
 steps:
-  - name: 'gcr.io/odenseemergency/test'
+  - name: 'gcr.io/odenseemergency/backend'
     args: ['hello, world!']
 options:
   logging: CLOUD_LOGGING_ONLY
