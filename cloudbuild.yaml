@@ -2,11 +2,9 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
     dir: "Frontend"
-    images: ["gcr.io/odenseemergency/frontend"]
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
     dir: "Backend"
-    images: ["gcr.io/odenseemergency/baceknd"]
 
 # Trigger the build when a commit is pushed to the 'main' branch of the repository
 triggers:
