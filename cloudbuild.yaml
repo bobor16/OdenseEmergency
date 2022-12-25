@@ -5,9 +5,3 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
     dir: "Backend"
-
-# Trigger the build when a commit is pushed to the 'main' branch of the repository
-triggers:
-  - type: github
-    repoName: "OdenseEmergency"
-    branch: "main"
