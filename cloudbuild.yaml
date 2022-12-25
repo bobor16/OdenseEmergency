@@ -1,28 +1,15 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-    dir: 'Backend'
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+    dir: "Frontend"
+    images: ["gcr.io/odenseemergency/frontend"]
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+    dir: "Backend"
+    images: ["gcr.io/odenseemergency/baceknd"]
 
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-    dir: 'Frontend'
-
-# Trigger the build when a commit is pushed to the 'master' branch of the repository
+# Trigger the build when a commit is pushed to the 'main' branch of the repository
 triggers:
   - type: github
-    repoName: 'OdenseEmergency'
-    branch: 'master'
-
-# Deploy the built image to Cloud Run
-images:
-  - name: 'gcr.io/odenseemergency/backend'
-    dir: 'Backend'
-    options:
-      runService:
-        service: 'backend'
-images:
-  - name: 'gcr.io/odenseemergency/frontend'
-    dir: 'Frontend'
-    options:
-      runService:
-        service: 'frontend'
+    repoName: "OdenseEmergency"
+    branch: "main"
