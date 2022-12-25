@@ -1,10 +1,28 @@
-# cloudbuild.yaml
-
 steps:
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['npm install']
-    env: ['CACHE_FOLDER=node_modules']
+    args: ['install']
+    dir: 'Backend'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    dir: 'Frontend'
 
+# Trigger the build when a commit is pushed to the 'master' branch of the repository
+triggers:
+  - type: github
+    repoName: 'OdenseEmergency'
+    branch: 'master'
+
+# Deploy the built image to Cloud Run
+images:
+  - name: 'gcr.io/odenseemergency/backend'
+    dir: 'Backend'
+    options:
+      runService:
+        service: 'backend'
+images:
+  - name: 'gcr.io/odenseemergency/frontend'
+    dir: 'Frontend'
+    options:
+      runService:
+        service: 'frontend'
