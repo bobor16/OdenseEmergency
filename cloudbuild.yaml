@@ -3,5 +3,6 @@
 steps:
   - name: 'gcr.io/odenseemergency/test'
     args: ['hello, world!']
-    env:
-      - 'CLOUD_LOGGING_ONLY=true'
+options:
+  logging: CLOUD_LOGGING_ONLY
+
