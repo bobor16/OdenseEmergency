@@ -1,5 +1,5 @@
 const constansts = {
-    serverBaseURL: 'https://backend-lyh2tel4na-ew.a.run.app' 
+    serverBaseURL: 'https://disasterevac.com' 
 }
 
 export default constansts;
